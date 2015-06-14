@@ -2,44 +2,38 @@
 <html >
 
   <head>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <script data-require="angular.js@1.1.5" data-semver="1.1.5" src="http://code.angularjs.org/1.1.5/angular.min.js"></script>
   </head>
 
-<body ng-app="myApp" ng-controller="mytodoCtrl">
-
+<body ng-app="myApp" ng-controller="mytodoCtrl">	
+<a href="#"  class="btn btn-primary btn-lg btn-block">ToDo List</a>
 <div class="container">
 	 <div class="row">
 	   <div class="col-sm-12">
-	<h2>ToDo List</h2><hr>
+	<h3>Add new task</h3><hr>
 			<form ng-submit="addTodo()" class="todo-form">
 			<div class="form-group">
 				<input type="text" class="form-control" ng-model="todoInput" placeholder="Enter new ToDo item" />
 			</div>
-			<button type="submit" class="btn btn-success">Add Task</button>
+			<button type="submit" class="btn btn-primary">Add Task</button>
 			</form>
 			
 			<br>
 		
 	<h3>My ToDo List</h3><hr>
-			<table class="table table-striped">
+			<table class="table table-striped table-condensed">
 				<tr ng-repeat="todo in todos track by $index">
 					<td><input type="checkbox" ng-model="todo.done"></td>
-					<td><span  ng-class="{strike: todo.striked}" ng-bind="todo.todoText"></span></td>
+					<td><span  ng-class="{strike: todo.done}" ng-bind="todo.todoText"></span></td>
 				</tr>
 			</table>
-			<!--
-				<div ng-repeat="todo in todos track by $index">
-					<input type="checkbox" ng-model="todo.done">
-					<span  ng-class="{strike: todo.striked}" ng-bind="todo.todoText"></span>
-				</div>
-				<br>
-				
-				-->
-			<button ng-click="mark()" class="btn btn-primary">Mark all</button>
-			<button ng-click="strike()" class="btn btn-warning">Strike</button>
-			<button ng-click="remove()" class="btn btn-danger">Remove</button> 
+			
+			<div class="btn-group btn-group-justified">
+			  <a href="#" ng-click="mark()"   class="btn btn-primary">Mark all</a>
+			  <a href="#" ng-click="remove()" class="btn btn-danger">Remove Marked</a>
+			</div>
 		</div>
 	</div>
 </div>    

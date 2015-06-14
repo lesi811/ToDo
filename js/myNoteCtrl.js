@@ -25,12 +25,6 @@ $scope.saved = localStorage.getItem('todos');//vrati postojece iz localStorage
 		localStorage.setItem('todos', JSON.stringify($scope.todos));
 	};
 
-	$scope.strike = function() {
-		angular.forEach($scope.todos, function(todo) {
-			if (todo.done) todo.striked = true;
-		});
-	};	
-	
 	$scope.mark = function() {
 		angular.forEach($scope.todos, function(todo) {
 			todo.done = true;
